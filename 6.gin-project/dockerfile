@@ -1,0 +1,15 @@
+FROM golang:1.24-alpine
+
+WORKDIR /app
+
+COPY go.mod go.sum ./
+RUN go mod tidy       # Fix go.mod/go.sum based on imports
+RUN go mod download   # Download all required modules into Docker cache
+
+COPY . .
+
+RUN go build -o main .
+
+EXPOSE 8080
+
+CMD ["./main"]
