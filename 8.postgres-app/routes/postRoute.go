@@ -15,3 +15,8 @@ func RegisterPost(r *gin.Engine) {
 		post.DELETE("/:id", controllers.DeletePost)
 	}
 }
+
+// {
+//     "title": "test title3",
+//     "user_id":7
+// }

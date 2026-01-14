@@ -16,3 +16,8 @@ func RegisterUser(r *gin.Engine) {
 		user.DELETE("/:id", controllers.DeleteUser)
 	}
 }
+
+// {
+//     "name": "name3",
+//     "email": "email3"
+// }
