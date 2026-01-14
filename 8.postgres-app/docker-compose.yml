@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: postgres-local
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: testdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
+
+
+# docker exec -it postgres-local bash
+# env | grep POSTGRES
+
+# psql -U root  -d testdb  # psql -U $POSTGRES_USER -d $POSTGRES_DB
+
+# psql -U postgres
+# \c mydb
+
+# \l
+# \dt
+# \d users
+# SELECT * FROM users;
