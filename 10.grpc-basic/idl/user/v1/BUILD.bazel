@@ -1,0 +1,23 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
+load("@rules_proto_grpc_go//:defs.bzl", "go_proto_library", "go_grpc_library")
+
+proto_library(
+    name = "user_proto",
+    srcs = ["user.proto"],
+    visibility = ["//visibility:public"], 
+)
+
+go_proto_library(
+    name = "user_go_proto",
+    protos = [":user_proto"],  # must use `protos` here
+    importpath = "grpc-project/proto/user/v1",
+    visibility = ["//visibility:public"], 
+)
+
+go_grpc_library(
+    name = "user_go_grpc",
+    protos = [":user_proto"],
+    importpath = "grpc-project/proto/user/v1",
+    deps = [":user_go_proto"],
+    visibility = ["//visibility:public"], 
+)

@@ -1,0 +1,4 @@
+alias(
+    name = "all_grpc",
+    actual = "//idl/post/v1:post_go_grpc",
+)
